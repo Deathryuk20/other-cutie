@@ -1,0 +1,356 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{max-width:680px;padding:1.5rem 0;font-family:var(--font-sans)}
+.sec-label{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-secondary);border-bottom:.5px solid var(--color-border-tertiary);padding-bottom:6px;margin:2rem 0 .75rem}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:10px}
+.card h3{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h3 i{font-size:16px;color:#1D9E75}
+.row{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:5px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.row:last-child{border-bottom:none}
+.row .k{color:var(--color-text-secondary);flex:1}
+.row .v{font-weight:500;color:var(--color-text-primary);text-align:right;margin-left:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pill{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500}
+.pg{background:#E1F5EE;color:#0F6E56}
+.pa{background:#FAEEDA;color:#854F0B}
+.pr{background:#FCEBEB;color:#A32D2D}
+.pb{background:#E6F1FB;color:#185FA5}
+.zones-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
+.zone-box{border-radius:var(--border-radius-md);padding:10px;border:.5px solid}
+.zone1{background:#E1F5EE;border-color:#5DCAA5;color:#085041}
+.zone2{background:#E6F1FB;border-color:#85B7EB;color:#042C53}
+.zone3{background:#FAEEDA;border-color:#EF9F27;color:#412402}
+.zone-title{font-size:12px;font-weight:500;margin-bottom:4px}
+.zone-body{font-size:11px;line-height:1.5}
+.reco{display:flex;gap:12px;padding:10px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.reco:last-child{border-bottom:none}
+.reco-num{width:24px;height:24px;border-radius:50%;background:#E1F5EE;color:#0F6E56;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.reco-body{}
+.reco-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.reco-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+.reco-tag{display:inline-block;font-size:10px;padding:1px 7px;border-radius:10px;margin-top:5px;margin-right:4px}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.swot-box{border-radius:var(--border-radius-md);padding:10px;border:.5px solid}
+.s-box{background:#E1F5EE;border-color:#5DCAA5}
+.w-box{background:#FCEBEB;border-color:#F09595}
+.o-box{background:#E6F1FB;border-color:#85B7EB}
+.t-box{background:#FAEEDA;border-color:#EF9F27}
+.swot-title{font-size:11px;font-weight:500;margin-bottom:6px}
+.swot-title.s{color:#085041}.swot-title.w{color:#791F1F}.swot-title.o{color:#042C53}.swot-title.t{color:#412402}
+.swot-item{font-size:11px;line-height:1.5;color:var(--color-text-secondary);display:flex;gap:6px;margin-bottom:3px}
+.swot-item::before{content:'·';flex-shrink:0;font-weight:700}
+.phase{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.phase:last-child{border-bottom:none}
+.phase-num{font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;flex-shrink:0;min-width:60px;text-align:center}
+.p1{background:#E1F5EE;color:#085041}
+.p2{background:#E6F1FB;color:#042C53}
+.p3{background:#FAEEDA;color:#412402}
+.phase-body{}
+.phase-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.phase-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.compare-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+.compare-table th{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-align:left;padding:6px 8px;border-bottom:.5px solid var(--color-border-tertiary);background:var(--color-background-secondary)}
+.compare-table td{padding:7px 8px;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.tod-vis{margin:10px 0;position:relative;height:120px}
+.tod-rings{position:relative;width:100%;height:100%}
+.tod-ring{position:absolute;border-radius:50%;transform:translate(-50%,-50%)}
+.ring3{width:220px;height:110px;background:#FAEEDA;border:1px dashed #EF9F27;top:50%;left:50%;transform:translate(-50%,-50%)}
+.ring2{width:160px;height:80px;background:#E6F1FB;border:1px dashed #85B7EB;top:50%;left:50%;transform:translate(-50%,-50%)}
+.ring1{width:100px;height:50px;background:#E1F5EE;border:1px solid #5DCAA5;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center}
+.ring1 span{font-size:10px;font-weight:500;color:#0F6E56}
+.ring-label{position:absolute;font-size:10px;color:var(--color-text-secondary)}
+.r-label1{top:35%;right:26%}
+.r-label2{top:22%;right:18%}
+.r-label3{top:10%;right:10%}
+</style>
+
+<div class="wrap">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Deep planning analysis of Rajendra Place: land use, TOD potential, and planning recommendations</h2>
+
+  <div class="sec-label">01 — Land Use Zoning Framework</div>
+  <div class="card">
+    <h3><i class="ti ti-layers-difference" aria-hidden="true"></i> DDA Zonal Hierarchy for Rajendra Place</h3>
+    <div class="row"><span class="k">Planning Zone</span><span class="v">Zone B (Karol Bagh & City Extension)</span></div>
+    <div class="row"><span class="k">Sub-zone</span><span class="v">B-1 to B-7 (7 sub-zones covering ~2,304 ha)</span></div>
+    <div class="row"><span class="k">DDA designation</span><span class="v">District Centre — one of Delhi's planned commercial nodes</span></div>
+    <div class="row"><span class="k">Governing plan</span><span class="v">MPD-2021 (active); Draft MPD-2041 pending notification</span></div>
+    <div class="row"><span class="k">Zonal Dev. Plan (ZDP)</span><span class="v">ZDP for Zone B — Karol Bagh & City Extension (DDA, 2010)</span></div>
+    <div class="row"><span class="k">Land use character</span><span class="v">Mixed-use commercial (core) + residential (edges)</span></div>
+    <div class="row"><span class="k">Edge transformation</span><span class="v">Old & New Rajinder Nagar edges converting to commercial/mixed-use streets</span></div>
+  </div>
+  <div class="card">
+    <h3><i class="ti ti-building-skyscraper" aria-hidden="true"></i> FAR & Development Control Norms (MPD-2021 base)</h3>
+    <div class="row"><span class="k">Standard FAR (commercial)</span><span class="v">250 (pre-TOD)</span></div>
+    <div class="row"><span class="k">TOD Zone base FAR</span><span class="v">400 (on TOD charge payment)</span></div>
+    <div class="row"><span class="k">Maximum TOD FAR</span><span class="v">500 (on plots ≥2,000 sq. m with 18m road)</span></div>
+    <div class="row"><span class="k">Max ground coverage (TOD)</span><span class="v">40%</span></div>
+    <div class="row"><span class="k">Mandatory green (TOD)</span><span class="v">Minimum 10% of amalgamated plot area</span></div>
+    <div class="row"><span class="k">Required parking (TOD)</span><span class="v">1 ECS per 100 sq. m FAR; 30% public parking on 1ha+ schemes</span></div>
+    <div class="row"><span class="k">Setbacks (small plots 2k–10k sqm)</span><span class="v">Front 9m / Back & Side 6m each</span></div>
+    <div class="row"><span class="k">Setbacks (large plots 10k+ sqm)</span><span class="v">Front 15m / Back & Side 12m each</span></div>
+  </div>
+  <div class="card">
+    <h3><i class="ti ti-chart-pie" aria-hidden="true"></i> Mandatory Land Use Mix under TOD Policy (2026)</h3>
+    <div style="margin:8px 0">
+      <div style="height:24px;border-radius:4px;overflow:hidden;display:flex;width:100%">
+        <div style="width:65%;background:#1D9E75;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:500;color:#fff">65% Residential (≤100 sq.m units)</div>
+        <div style="width:10%;background:#185FA5;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff">10%</div>
+        <div style="width:25%;background:#BA7517;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff">25%</div>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:6px;font-size:11px;color:var(--color-text-secondary)">
+        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#1D9E75"></span>Mandatory affordable residential</span>
+        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#185FA5"></span>Commercial/amenities</span>
+        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#BA7517"></span>Flexible use</span>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-top:8px;line-height:1.6">The flexible 25% can accommodate larger residential units, office space, guest houses, or studio apartments — critical for Rajendra Place's existing office character.</div>
+  </div>
+
+  <div class="sec-label">02 — TOD Potential Assessment</div>
+  <div class="card">
+    <h3><i class="ti ti-circles-relation" aria-hidden="true"></i> TOD Influence Zone Structure</h3>
+    <div class="zones-grid">
+      <div class="zone-box zone1">
+        <div class="zone-title">Zone 1 — Intense</div>
+        <div class="zone-body">0–300m radius<br>Highest density permitted<br>Core TOD schemes<br><strong>Station core + Pusa Rd</strong></div>
+      </div>
+      <div class="zone-box zone2">
+        <div class="zone-title">Zone 2 — Standard</div>
+        <div class="zone-body">300–800m radius<br>Standard TOD norms<br>Mixed-use mandatory<br><strong>Old Raj. Nagar, Patel Nagar</strong></div>
+      </div>
+      <div class="zone-box zone3">
+        <div class="zone-title">Zone 3 — Transition</div>
+        <div class="zone-body">800m–2000m radius<br>Transition norms apply<br>Softer interventions<br><strong>Karol Bagh, Prasad Nagar</strong></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--color-text-secondary);line-height:1.6">The 2026 TOD notification operates on a <strong style="font-weight:500;color:var(--color-text-primary)">corridor-based approach</strong> — the entire Blue Line corridor within 500m on either side is the operative zone, covering approx. 207 sq. km citywide. Rajendra Place station sits well within this. Participation remains voluntary but FAR incentives (up to 500 vs. standard 250) are the key pull.</div>
+  </div>
+  <div class="card">
+    <h3><i class="ti ti-star-half-filled" aria-hidden="true"></i> TOD Readiness Score — Rajendra Place</h3>
+    <div class="compare-table" style="margin-top:0">
+      <table class="compare-table">
+        <tr><th>TOD Criterion</th><th>Status</th><th>Score</th></tr>
+        <tr><td>Transit access</td><td>Dedicated Blue Line station, 210–700m from core; 4 gates</td><td><span class="pill pg">Excellent</span></td></tr>
+        <tr><td>Mixed land use</td><td>Already mixed-use (offices, retail, residential, education, healthcare)</td><td><span class="pill pg">High</span></td></tr>
+        <tr><td>Density</td><td>44,718 persons/km² — already very high</td><td><span class="pill pg">High</span></td></tr>
+        <tr><td>Plot consolidation potential</td><td>Fragmented ownership; mostly builder floors — amalgamation to 1ha+ is difficult</td><td><span class="pill pr">Low</span></td></tr>
+        <tr><td>Walkability to station</td><td>Congested streets, narrow lanes, missing footpaths, on-street parking</td><td><span class="pill pa">Moderate</span></td></tr>
+        <tr><td>Road width (18m requirement)</td><td>Pusa Road qualifies; internal roads largely under 18m</td><td><span class="pill pa">Partial</span></td></tr>
+        <tr><td>Green space</td><td>Critically low within commercial core; Ridge adjacency not usable for public green</td><td><span class="pill pr">Poor</span></td></tr>
+        <tr><td>Parking demand management</td><td>Severe street parking crisis; no multi-level structure; no pricing</td><td><span class="pill pr">Poor</span></td></tr>
+        <tr><td>Affordable housing need</td><td>Student population & transient workforce create strong demand</td><td><span class="pill pb">High need</span></td></tr>
+        <tr><td>Multi-modal integration</td><td>Metro + DTC buses + autos; DMRC revamp planned for MMI</td><td><span class="pill pa">In progress</span></td></tr>
+      </table>
+    </div>
+    <div style="margin-top:12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;font-size:12px;color:var(--color-text-secondary);line-height:1.6">
+      <i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px" aria-hidden="true"></i>
+      <strong style="font-weight:500;color:var(--color-text-primary)">Planning verdict:</strong> Rajendra Place has exceptional transit and density credentials for TOD but faces a structural paradox — already-developed, fine-grained urban fabric makes large-scale TOD scheme assembly (≥1 ha) very difficult without public-sector land aggregation. The best TOD opportunities are along the Pusa Road frontage and in any DDA/public lands adjacent to the station.
+    </div>
+  </div>
+
+  <div class="sec-label">03 — Key Planning Problems (Diagnostic)</div>
+  <div class="card">
+    <h3><i class="ti ti-stethoscope" aria-hidden="true"></i> Problem Tree Analysis</h3>
+    <div class="compare-table" style="margin-top:0">
+      <table class="compare-table">
+        <tr><th>Issue</th><th>Root Cause</th><th>Consequence</th></tr>
+        <tr>
+          <td><strong style="font-weight:500">Parking crisis</strong></td>
+          <td>No off-street parking mandate enforced; roads used as free parking</td>
+          <td>Road width effectively halved; emergency access blocked; pedestrian danger</td>
+        </tr>
+        <tr>
+          <td><strong style="font-weight:500">Student housing exploitation</strong></td>
+          <td>Extreme demand–supply mismatch; informal PG market; no regulation</td>
+          <td>Illegal rent extraction; overcrowding; fire risks; no tenant protection</td>
+        </tr>
+        <tr>
+          <td><strong style="font-weight:500">Land use conversion</strong></td>
+          <td>Coaching economy driving residential-to-commercial shift without sanction</td>
+          <td>Loss of residential character; zoning violations; loss of social diversity</td>
+        </tr>
+        <tr>
+          <td><strong style="font-weight:500">Urban heat island</strong></td>
+          <td>High-density built-up area + minimal green cover + proximity to heat-intensive Pusa Rd</td>
+          <td>Central Delhi is identified as one of Delhi's highest UHI zones</td>
+        </tr>
+        <tr>
+          <td><strong style="font-weight:500">Ridge encroachment</strong></td>
+          <td>Weak enforcement; NGT orders unenforced; construction with illegal utility connections</td>
+          <td>Loss of watershed function, biodiversity, and the area's only natural green buffer</td>
+        </tr>
+        <tr>
+          <td><strong style="font-weight:500">Solid waste</strong></td>
+          <td>High floating population; insufficient MCD collection frequency; no source segregation</td>
+          <td>Street littering; disease vectors; drainage clogging during monsoon</td>
+        </tr>
+        <tr>
+          <td><strong style="font-weight:500">Pusa–Shankar Rd junction</strong></td>
+          <td>Metro pillars created complex road geometry at PUSA roundabout in 2006; not redesigned</td>
+          <td>"Conflict geometry" — multiple modes collide, no pedestrian priority</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec-label">04 — SWOT for Planning Intervention</div>
+  <div class="card">
+    <h3><i class="ti ti-layout-grid" aria-hidden="true"></i> SWOT Analysis</h3>
+    <div class="swot">
+      <div class="swot-box s-box">
+        <div class="swot-title s">Strengths</div>
+        <div class="swot-item">Dedicated metro station on highest-ridership Blue Line</div>
+        <div class="swot-item">DDA District Centre designation — formal commercial status</div>
+        <div class="swot-item">Excellent healthcare cluster (BLK-Max, Ganga Ram within 1.5 km)</div>
+        <div class="swot-item">High density = resource-efficient service delivery</div>
+        <div class="swot-item">Central location — access to all quarters of Delhi</div>
+        <div class="swot-item">Strong economic identity (offices + coaching economy)</div>
+      </div>
+      <div class="swot-box w-box">
+        <div class="swot-title w">Weaknesses</div>
+        <div class="swot-item">Fine-grained ownership — TOD land assembly near impossible without state intervention</div>
+        <div class="swot-item">Critically low green space within commercial core</div>
+        <div class="swot-item">Chronic parking deficit with no management system</div>
+        <div class="swot-item">Informal housing economy exploiting student population</div>
+        <div class="swot-item">Internal roads mostly below 18m (TOD eligibility constraint)</div>
+        <div class="swot-item">High noise, poor solid waste management</div>
+      </div>
+      <div class="swot-box o-box">
+        <div class="swot-title o">Opportunities</div>
+        <div class="swot-item">2026 TOD Policy — FAR uplift to 500 along Blue Line corridor</div>
+        <div class="swot-item">Draft MPD-2041 re-programming of DC sites as TOD-enabled mixed-use hubs</div>
+        <div class="swot-item">DMRC station MMI revamp — design a transit plaza, not just a platform</div>
+        <div class="swot-item">Ridge as ecological asset — managed access trails, urban forest tourism</div>
+        <div class="swot-item">Karol Bagh regeneration plan (MPD-2041) — could extend into Rajendra Place</span></div>
+        <div class="swot-item">Student housing regulation — formalise PG sector, capture tax revenue</div>
+      </div>
+      <div class="swot-box t-box">
+        <div class="swot-title t">Threats</div>
+        <div class="swot-item">Ridge encroachment continues despite NGT orders (Jan 2025 order still unenforced)</div>
+        <div class="swot-item">Gentrification risk — TOD FAR uplift could displace the coaching economy</div>
+        <div class="swot-item">MPD-2041 delay — plan under MoHUA review since 2021; ZDPs cannot be prepared until it is notified</div>
+        <div class="swot-item">Multi-agency coordination failure (DDA, MCD, DMRC, GNCTD)</div>
+        <div class="swot-item">Urban heat escalation — Delhi forecast as India's "heat capital" by century end</div>
+        <div class="swot-item">Water scarcity — declining groundwater + rising density</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">05 — Planning Recommendations</div>
+  <div class="card">
+    <h3><i class="ti ti-bulb" aria-hidden="true"></i> 10 Evidence-Based Recommendations</h3>
+    <div class="reco">
+      <div class="reco-num">1</div>
+      <div class="reco-body">
+        <div class="reco-title">Transit Plaza + Multi-Modal Hub at the Metro Station</div>
+        <div class="reco-desc">Redesign the area around Gate 2 (BLK Hospital side) and Gate 4 (Krishi Kunj) as pedestrian-priority transit plazas with e-rickshaw bays, cycle docking, weather shelter, and wayfinding. Integrate the upcoming DMRC Multi-Modal Integration (MMI) revamp with a street-level public realm improvement. The Pusa roundabout junction conflict (created by 2006 metro pillars) needs dedicated redesign with signal timing, pedestrian crossings, and removal of on-street parking within 100m of the station gates.</div>
+        <div><span class="pill pg reco-tag">High priority</span><span class="pill pb reco-tag">DMRC + DDA</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Short term</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">2</div>
+      <div class="reco-body">
+        <div class="reco-title">Managed Parking System — Multi-Level + Pricing</div>
+        <div class="reco-desc">Develop 2–3 multi-level car parking (MLCP) structures on Pusa Road frontage plots. Implement priced on-street parking (pay-and-display or app-based) across the commercial core. Revenue should fund pedestrian infrastructure. This is a prerequisite for walkability: freeing pavement from cars is more impactful than any design intervention.</div>
+        <div><span class="pill pg reco-tag">High priority</span><span class="pill pb reco-tag">MCD + DDA</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Short–medium term</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">3</div>
+      <div class="reco-body">
+        <div class="reco-title">TOD Scheme on DDA/Public Land along Pusa Road</div>
+        <div class="reco-desc">The key TOD barrier is land assembly. Identify all DDA-owned or government-held plots within 500m of the station — including Rajendra Bhawan, DMRC air rights, and any DDA surplus land — and prepare an Influence Zone Plan (IZP). Pusa Road has sufficient RoW for 18m road eligibility. A pilot 1-ha scheme combining affordable housing (65% FAR), commercial, and a public plaza would demonstrate the TOD policy at scale in a central Delhi District Centre context.</div>
+        <div><span class="pill pg reco-tag">High priority</span><span class="pill pb reco-tag">DDA + DMRC</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Medium term</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">4</div>
+      <div class="reco-body">
+        <div class="reco-title">Student Housing Regulation & PG Formalization</div>
+        <div class="reco-desc">Rajendra Nagar's coaching economy drives a large, unregulated PG sector. Introduce a licensing regime for paying guest accommodations (as proposed under DDA's Rental Housing Policy in MPD-2041) with fire safety, occupancy, and rent disclosure norms. A dedicated "Student Zone" overlay in the Zonal Plan — permitting dormitory-style construction with appropriate FAR norms — would channel demand into safer, planned housing stock and reduce exploitation.</div>
+        <div><span class="pill pa reco-tag">Medium priority</span><span class="pill pb reco-tag">DDA + MCD + GNCTD</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Medium term</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">5</div>
+      <div class="reco-body">
+        <div class="reco-title">Ridge Buffer & Urban-Forest Interface Plan</div>
+        <div class="reco-desc">The Central Ridge Protected Forest to the south is the locality's only ecological asset and groundwater recharge zone. Strengthen the buffer zone between Rajendra Nagar's southern edge and the Ridge with a hard demarcation (wall or planted berm), managed pedestrian access trails for recreation, and native species plantation (not vilayati kikar). Pursue the pending Forest Act Section 20 notification ordered by NGT (Jan 2025) to give the Ridge formal legal protection.</div>
+        <div><span class="pill pg reco-tag">High priority</span><span class="pill pb reco-tag">Delhi Forest Dept + NGT</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Immediate–medium term</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">6</div>
+      <div class="reco-body">
+        <div class="reco-title">Green Infrastructure & Urban Heat Mitigation</div>
+        <div class="reco-desc">Central Delhi's commercial areas — including the Connaught Place–Karol Bagh belt — are identified as Delhi's highest urban heat island zones. For Rajendra Place: mandate tree-lined boulevards on all roads ≥9m RoW with a minimum canopy target; require green roofs or rooftop gardens on all new commercial buildings over 3 floors; develop pocket parks on any DDA surplus land. Trees can cool surroundings by the equivalent of a 7kW air conditioner; each tree planted is measurable urban resilience.</div>
+        <div><span class="pill pa reco-tag">Medium priority</span><span class="pill pb reco-tag">MCD + DDA</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">All phases</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">7</div>
+      <div class="reco-body">
+        <div class="reco-title">Active Street Frontage & Ground Floor Activation</div>
+        <div class="reco-desc">MPD-2041 introduces "active frontage" norms for commercial areas and heritage zones. Rajendra Place's ground floors are dominated by parking podiums and blank walls. Mandate active uses (retail, cafes, bookstores — appropriate to the coaching economy) on all ground-floor commercial frontages along Pusa Road. Eliminate compound walls and setback dead zones. This alone transforms pedestrian experience.</div>
+        <div><span class="pill pa reco-tag">Medium priority</span><span class="pill pb reco-tag">DDA (ZDP revision)</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Medium term</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">8</div>
+      <div class="reco-body">
+        <div class="reco-title">Solid Waste & Decentralised Sanitation</div>
+        <div class="reco-desc">High floating population (students, office workers) requires dense collection infrastructure. Install decentralised waste collection pods every 150–200m in the commercial core; introduce source segregation mandates for commercial establishments; and establish a bulk waste generator policy for coaching institutes (which produce large paper waste). The Pusa Road axis should have clean public toilet blocks as part of the TOD transit plaza design.</div>
+        <div><span class="pill pa reco-tag">Medium priority</span><span class="pill pb reco-tag">MCD + GNCTD</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Short term</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">9</div>
+      <div class="reco-body">
+        <div class="reco-title">Heritage & Identity — "Coaching District" Cultural Mapping</div>
+        <div class="reco-desc">Rajendra Nagar is one of Delhi's most socially distinctive neighbourhoods — a planned Partition-era colony that has organically evolved into India's largest civil services preparation hub. MPD-2041 encourages cultural mapping and heritage overlays. A planning exercise to document and celebrate this identity — street art, wayfinding celebrating the coaching culture, bookstore clusters, study parks — would build a positive sense of place and resist generic gentrification pressures from TOD investment.</div>
+        <div><span class="pill" style="background:#EEEDFE;color:#3C3489;reco-tag">Low-medium priority</span><span class="pill pb reco-tag">MCD + Civil Society</span></div>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="reco-num">10</div>
+      <div class="reco-body">
+        <div class="reco-title">Integrated Governance — Multi-Agency Coordination Cell</div>
+        <div class="reco-desc">Rajendra Place is governed by at least five agencies (DDA, MCD, DMRC, GNCTD, Delhi Forest Dept). The MPD-2041 TOD Committee (chaired by DDA Vice-Chairman) provides a model. A place-based coordination mechanism — an Area Management Committee for the Rajendra Place District Centre — with representatives from all agencies and civil society should be the planning unit for all interventions, replacing siloed departmental action.</div>
+        <div><span class="pill pa reco-tag">Structural priority</span><span class="pill pb reco-tag">All agencies</span><span class="reco-tag pill" style="background:#EEEDFE;color:#3C3489">Immediate</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">06 — Implementation Phasing</div>
+  <div class="card">
+    <h3><i class="ti ti-calendar-stats" aria-hidden="true"></i> Proposed 3-Phase Action Plan</h3>
+    <div class="phase">
+      <span class="phase-num p1">Phase 1<br>0–2 yrs</span>
+      <div class="phase-body">
+        <div class="phase-title">Quick wins & foundations</div>
+        <div class="phase-desc">Multi-agency coordination cell constituted → Pusa roundabout junction redesign → Priced parking policy notified → Solid waste pods installed → Ridge buffer demarcated → NGT Forest Act Section 20 notification enforced → DDA public land inventory within 500m station radius completed.</div>
+      </div>
+    </div>
+    <div class="phase">
+      <span class="phase-num p2">Phase 2<br>2–7 yrs</span>
+      <div class="phase-body">
+        <div class="phase-title">Core TOD & housing reform</div>
+        <div class="phase-desc">IZP (Influence Zone Plan) prepared and notified → Pilot TOD scheme on Pusa Road public land (1ha+, FAR 400–500) → Multi-level car parking structures built → Transit plaza at metro Gates 2 & 4 → Student housing licensing regime activated → Active frontage norms in revised ZDP → Urban forestry programme (tree-lined streets, green roofs).</div>
+      </div>
+    </div>
+    <div class="phase">
+      <span class="phase-num p3">Phase 3<br>7–15 yrs</span>
+      <div class="phase-body">
+        <div class="phase-title">Area-wide transformation</div>
+        <div class="phase-desc">Full MPD-2041 implementation post-notification → Private plot TOD uptake along Blue Line corridor → Ridge managed recreation trails operational → Coaching district cultural precinct established → Comprehensive streetscape upgrade → Affordable housing stock built along Pusa Road → Formal monitoring against KPIs set by MPD-2041.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem;padding:1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);font-size:12px;color:var(--color-text-tertiary);line-height:1.6">
+    Key policy references: MPD-2021 (DDA), Draft MPD-2041 (DDA, 2021), TOD Policy 2026 (MoHUA/DDA, notified April 2026), Delhi TOD Regulations 2026, ZDP Zone B Karol Bagh 2010, NGT Order Jan 17 2025 (Ridge), DUAC Ward 149 Study, Scholarly Research Journal — ORN Profile (Dr. Aarti Kumari), RMI Urban Forestry Delhi Report (2026), Greenpeace Delhi HAP Analysis.
+    <button onclick="sendPrompt('Can you help me structure a planning project report on Rajendra Place with methodology, data sources, and chapter outline?')" style="margin-top:10px;display:block;font-size:12px;">Help me structure my project report ↗</button>
+  </div>
+</div>
